@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer.
  *
@@ -9,16 +10,50 @@
  * @since 2.2.0
  */
 ?>
+<!--Footer Start-->
+<footer class="footer-style-1">
 
-		</div><!-- .row -->
-	</div><!-- #wrapper -->
+    <div class="container">
+        <div class="row align-items-center">
+            <!--Social-->
+            <div class="col-12 col-lg-6 text-center text-lg-left order-2 order-lg-1">
+                <div class="footer-social text-center text-lg-left ">
+                    <ul class="list-unstyled">
+                        <li><a class="wow fadeInUp" href="javascript:void(0);"><i aria-hidden="true" class="fab fa-facebook-f"></i></a></li>
+                        <li><a class="wow fadeInDown" href="javascript:void(0);"><i aria-hidden="true" class="fab fa-twitter"></i></a></li>
+                        <li><a class="wow fadeInUp" href="javascript:void(0);"><i aria-hidden="true" class="fab fa-google-plus-g"></i></a></li>
+                        <li><a class="wow fadeInDown" href="javascript:void(0);"><i aria-hidden="true" class="fab fa-linkedin-in"></i></a></li>
+                        <li><a class="wow fadeInUp" href="javascript:void(0);"><i aria-hidden="true" class="fab fa-instagram"></i></a></li>
+                        <li><a class="wow fadeInDown" href="javascript:void(0);"><i aria-hidden="true" class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+                <p class="company-about fadeIn mt-3 mt-lg-5">&copy; 2023 MegaOne. Made With Love By <a href="javascript:void(0);">Themesindustry</a>
+                </p>
+            </div>
+            <!--Text-->
+            <div class="col-12 col-lg-6 text-center order-1 order-lg-2">
+                <div class="contact-pot">
+                    <img src="<?php echo get_stylesheet_directory_uri().'/assets/images';?>/contact-pot.png" class="wow slideInRight"  data-wow-delay=".5" alt="contact-pot">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--Footer End-->
 
-	<footer id="footer" role="contentinfo">
-		<div class="container">
-			<p>&copy; <?php echo date( 'Y' ); ?> <a href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a> - <?php _e( 'All rights reserved', 'odin' ); ?> | <?php echo sprintf( __( 'Powered by the <a href="%s" rel="nofollow" target="_blank">Odin</a> forces and <a href="%s" rel="nofollow" target="_blank">WordPress</a>.', 'odin' ), 'http://wpod.in/', 'http://wordpress.org/' ); ?></p>
-		</div><!-- .container -->
-	</footer><!-- #footer -->
+<!--Animated Cursor-->
+<div class="aimated-cursor">
+    <div class="cursor">
+        <div class="cursor-loader"></div>
+    </div>
+</div>
+<!--Animated Cursor End-->
 
-	<?php wp_footer(); ?>
+<!--Scroll Top Start-->
+<span class="scroll-top-arrow"><i class="fas fa-angle-up"></i></span>
+<!--Scroll Top End-->
+
+<?php wp_footer(); ?>
+
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Odin functions and definitions.
  *
@@ -16,7 +17,7 @@
 /**
  * Sets content width.
  */
-if ( ! isset( $content_width ) ) {
+if (!isset($content_width)) {
 	$content_width = 600;
 }
 
@@ -29,9 +30,9 @@ require_once get_template_directory() . '/core/classes/class-shortcodes.php';
 require_once get_template_directory() . '/core/classes/class-thumbnail-resizer.php';
 // require_once get_template_directory() . '/core/classes/class-theme-options.php';
 // require_once get_template_directory() . '/core/classes/class-options-helper.php';
-// require_once get_template_directory() . '/core/classes/class-post-type.php';
+require_once get_template_directory() . '/core/classes/class-post-type.php';
 // require_once get_template_directory() . '/core/classes/class-taxonomy.php';
-// require_once get_template_directory() . '/core/classes/class-metabox.php';
+require_once get_template_directory() . '/core/classes/class-metabox.php';
 // require_once get_template_directory() . '/core/classes/abstracts/abstract-front-end-form.php';
 // require_once get_template_directory() . '/core/classes/class-contact-form.php';
 // require_once get_template_directory() . '/core/classes/class-post-form.php';
@@ -44,38 +45,39 @@ require_once get_template_directory() . '/core/classes/class-thumbnail-resizer.p
  */
 require_once get_template_directory() . '/core/classes/widgets/class-widget-like-box.php';
 
-if ( ! function_exists( 'odin_setup_features' ) ) {
+if (!function_exists('odin_setup_features')) {
 
 	/**
 	 * Setup theme features.
 	 *
 	 * @since 2.2.0
 	 */
-	function odin_setup_features() {
+	function odin_setup_features()
+	{
 
 		/**
 		 * Add support for multiple languages.
 		 */
-		load_theme_textdomain( 'odin', get_template_directory() . '/languages' );
+		load_theme_textdomain('odin', get_template_directory() . '/languages');
 
 		/**
 		 * Register nav menus.
 		 */
 		register_nav_menus(
 			array(
-				'main-menu' => __( 'Main Menu', 'odin' )
+				'main-menu' => __('Main Menu', 'odin')
 			)
 		);
 
 		/*
 		 * Add post_thumbnails suport.
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('post-thumbnails');
 
 		/**
 		 * Add feed link.
 		 */
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		/**
 		 * Support Custom Header.
@@ -90,7 +92,7 @@ if ( ! function_exists( 'odin_setup_features' ) ) {
 			'uploads'       => true,
 		);
 
-		add_theme_support( 'custom-header', $default );
+		add_theme_support('custom-header', $default);
 
 		/**
 		 * Support Custom Background.
@@ -100,12 +102,12 @@ if ( ! function_exists( 'odin_setup_features' ) ) {
 			'default-image' => '',
 		);
 
-		add_theme_support( 'custom-background', $defaults );
+		add_theme_support('custom-background', $defaults);
 
 		/**
 		 * Support Custom Editor Style.
 		 */
-		add_editor_style( 'assets/css/editor-style.css' );
+		add_editor_style('assets/css/editor-style.css');
 
 		/**
 		 * Add support for infinite scroll.
@@ -118,7 +120,7 @@ if ( ! function_exists( 'odin_setup_features' ) ) {
 				'container'      => 'content',
 				'wrapper'        => false,
 				'render'         => false,
-				'posts_per_page' => get_option( 'posts_per_page' )
+				'posts_per_page' => get_option('posts_per_page')
 			)
 		);
 
@@ -162,34 +164,35 @@ if ( ! function_exists( 'odin_setup_features' ) ) {
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+		add_theme_support('title-tag');
 
 		/*
 		 * Enable support for custom logo.
 		 *
 		 *  @since Odin 2.2.10
 		 */
-		add_theme_support( 'custom-logo', array(
+		add_theme_support('custom-logo', array(
 			'height'      => 240,
 			'width'       => 240,
 			'flex-height' => true,
-		) );
+		));
 	}
 }
 
-add_action( 'after_setup_theme', 'odin_setup_features' );
+add_action('after_setup_theme', 'odin_setup_features');
 
 /**
  * Register widget areas.
  *
  * @since 2.2.0
  */
-function odin_widgets_init() {
+function odin_widgets_init()
+{
 	register_sidebar(
 		array(
-			'name' => __( 'Main Sidebar', 'odin' ),
+			'name' => __('Main Sidebar', 'odin'),
 			'id' => 'main-sidebar',
-			'description' => __( 'Site Main Sidebar', 'odin' ),
+			'description' => __('Site Main Sidebar', 'odin'),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget' => '</aside>',
 			'before_title' => '<h3 class="widgettitle widget-title">',
@@ -198,62 +201,45 @@ function odin_widgets_init() {
 	);
 }
 
-add_action( 'widgets_init', 'odin_widgets_init' );
+add_action('widgets_init', 'odin_widgets_init');
 
 /**
  * Flush Rewrite Rules for new CPTs and Taxonomies.
  *
  * @since 2.2.0
  */
-function odin_flush_rewrite() {
+function odin_flush_rewrite()
+{
 	flush_rewrite_rules();
 }
 
-add_action( 'after_switch_theme', 'odin_flush_rewrite' );
+add_action('after_switch_theme', 'odin_flush_rewrite');
 
 /**
  * Load site scripts.
  *
  * @since 2.2.0
  */
-function odin_enqueue_scripts() {
+function odin_enqueue_scripts()
+{
 	$template_url = get_template_directory_uri();
-
-	// Loads Odin main stylesheet.
-	wp_enqueue_style( 'odin-style', get_stylesheet_uri(), array(), null, 'all' );
-
-	// jQuery.
-	wp_enqueue_script( 'jquery' );
-
-	// Html5Shiv
-	wp_enqueue_script( 'html5shiv', $template_url . '/assets/js/html5.js' );
-	wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
-
-	// General scripts.
-	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-		// Bootstrap.
-		wp_enqueue_script( 'bootstrap', $template_url . '/assets/js/libs/bootstrap.min.js', array(), null, true );
-
-		// FitVids.
-		wp_enqueue_script( 'fitvids', $template_url . '/assets/js/libs/jquery.fitvids.js', array(), null, true );
-
-		// Main jQuery.
-		wp_enqueue_script( 'odin-main', $template_url . '/assets/js/main.js', array(), null, true );
-	} else {
-		// Grunt main file with Bootstrap, FitVids and others libs.
-		wp_enqueue_script( 'odin-main-min', $template_url . '/assets/js/main.min.js', array(), null, true );
-	}
 
 	// Grunt watch livereload in the browser.
 	// wp_enqueue_script( 'odin-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true );
 
-	// Load Thread comments WordPress script.
-	if ( is_singular() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	wp_enqueue_script('bundle.min', get_template_directory_uri() . '/assets/js/bundle.min.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script('jquery.appear', get_template_directory_uri() . '/assets/js/jquery.appear.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script('jquery.fancybox.min', get_template_directory_uri() . '/assets/js/jquery.fancybox.min.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script('owl.carousel.min', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script('parallaxie.min', get_template_directory_uri() . '/assets/js/parallaxie.min.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script('wow.min', get_template_directory_uri() . '/assets/js/wow.min.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script('jquery.cubeportfolio.min', get_template_directory_uri() . '/assets/js/jquery.cubeportfolio.min.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script('TweenMax.min', get_template_directory_uri() . '/assets/js/TweenMax.min.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script('circle-progress.min', get_template_directory_uri() . '/assets/js/circle-progress.min.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '1.0.0', true);
 }
 
-add_action( 'wp_enqueue_scripts', 'odin_enqueue_scripts', 1 );
+add_action('wp_enqueue_scripts', 'odin_enqueue_scripts', 1);
 
 /**
  * Odin custom stylesheet URI.
@@ -265,11 +251,6 @@ add_action( 'wp_enqueue_scripts', 'odin_enqueue_scripts', 1 );
  *
  * @return string      New URI.
  */
-function odin_stylesheet_uri( $uri, $dir ) {
-	return $dir . '/assets/css/style.css';
-}
-
-add_filter( 'stylesheet_uri', 'odin_stylesheet_uri', 10, 2 );
 
 /**
  * Query WooCommerce activation
@@ -278,9 +259,10 @@ add_filter( 'stylesheet_uri', 'odin_stylesheet_uri', 10, 2 );
  *
  * @return boolean
  */
-if ( ! function_exists( 'is_woocommerce_activated' ) ) {
-	function is_woocommerce_activated() {
-		return class_exists( 'woocommerce' ) ? true : false;
+if (!function_exists('is_woocommerce_activated')) {
+	function is_woocommerce_activated()
+	{
+		return class_exists('woocommerce') ? true : false;
 	}
 }
 
@@ -312,9 +294,660 @@ require_once get_template_directory() . '/inc/template-tags.php';
 /**
  * WooCommerce compatibility files.
  */
-if ( is_woocommerce_activated() ) {
-	add_theme_support( 'woocommerce' );
+if (is_woocommerce_activated()) {
+	add_theme_support('woocommerce');
 	require get_template_directory() . '/inc/woocommerce/hooks.php';
 	require get_template_directory() . '/inc/woocommerce/functions.php';
 	require get_template_directory() . '/inc/woocommerce/template-tags.php';
 }
+
+
+function odin_enqueue_styles()
+{
+	// Adiciona o estilo principal do tema
+	wp_enqueue_style('odin-style', get_stylesheet_uri());
+
+	// Adiciona o estilo personalizado
+	wp_enqueue_style('bundle.min', get_template_directory_uri() . '/assets/css/bundle.min.css', array('odin-style'), '1.0.0', 'all');
+	wp_enqueue_style('line-awesome.min', get_template_directory_uri() . '/assets/css/line-awesome.min.css', array('odin-style'), '1.0.0', 'all');
+	wp_enqueue_style('revolution-settings.min', get_template_directory_uri() . '/assets/css/revolution-settings.min.css', array('odin-style'), '1.0.0', 'all');
+	wp_enqueue_style('jquery.fancybox.min', get_template_directory_uri() . '/assets/css/jquery.fancybox.min.css', array('odin-style'), '1.0.0', 'all');
+	wp_enqueue_style('owl.carousel.min', get_template_directory_uri() . '/assets/css/owl.carousel.min.css', array('odin-style'), '1.0.0', 'all');
+	wp_enqueue_style('cubeportfolio.min', get_template_directory_uri() . '/assets/css/cubeportfolio.min.css', array('odin-style'), '1.0.0', 'all');
+	wp_enqueue_style('LineIcons.min', get_template_directory_uri() . '/assets/css/LineIcons.min.css', array('odin-style'), '1.0.0', 'all');
+	wp_enqueue_style('slick', get_template_directory_uri() . '/assets/css/slick.css', array('odin-style'), '1.0.0', 'all');
+	wp_enqueue_style('slick-theme', get_template_directory_uri() . '/assets/css/slick-theme.css', array('odin-style'), '1.0.0', 'all');
+	wp_enqueue_style('wow', get_template_directory_uri() . '/assets/css/wow.css', array('odin-style'), '1.0.0', 'all');
+	wp_enqueue_style('blog', get_template_directory_uri() . '/assets/css/blog.css', array('odin-style'), '1.0.0', 'all');
+	wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css', array('odin-style'), '1.0.0', 'all');
+}
+add_action('wp_enqueue_scripts', 'odin_enqueue_styles');
+
+
+
+function metabox()
+{
+	// SEC 1
+	$metabox_home = new Odin_Metabox(
+		'videos', // Slug/ID of the Metabox (Required)
+		'Primeira parte', // Metabox name (Required)
+		'page', // Slug of Post Type (Optional)
+		'normal', // Context (options: normal, advanced, or side) (Optional)
+		'high', // Priority (options: high, core, default or low) (Optional)
+		'page-home.php'
+	);
+
+	$metabox_home->set_fields(
+		array(
+			/**
+			 * Default input examples.
+			 */
+			array(
+				'id'          => 'Header', // Obrigatório
+				'label'       => __('Texto box 1 - Secção 1', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'Header2', // Obrigatório
+				'label'       => __('Texto box 2 - Secção 1', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'description2', // Obrigatório
+				'label'       => __('Descrição 2 - Secção 1', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+
+			array(
+				'id'          => 'Header3', // Obrigatório
+				'label'       => __('Texto box 3 - Secção 1', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'description3', // Obrigatório
+				'label'       => __('Descrição 2 - Secção 1', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),            // Separator.
+			array(
+				'id'   => 'separator1', // Obrigatório
+				'type' => 'separator' // Obrigatório
+			)
+		)
+	);
+	// SEC 2
+	$metabox_home = new Odin_Metabox(
+		'parte2', // Slug/ID of the Metabox (Required)
+		'Segunda parte', // Metabox name (Required)
+		'page', // Slug of Post Type (Optional)
+		'normal', // Context (options: normal, advanced, or side) (Optional)
+		'high', // Priority (options: high, core, default or low) (Optional)
+		'page-home.php'
+	);
+
+	$metabox_home->set_fields(
+		array(
+			// Segunda Secção Home - 2
+
+			array(
+				'id'          => 'titulo-inst', // Obrigatório
+				'label'       => __('Titulo Institucional - Secção 2', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'description-inst', // Obrigatório
+				'label'       => __('Descrição Institucional - Secção 2', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'titulo-inst2', // Obrigatório
+				'label'       => __('Titulo Institucional 2 - Secção 2', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'titulo-inst3', // Obrigatório
+				'label'       => __('Titulo Institucional 3 - Secção 2', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'titulo-inst4', // Obrigatório
+				'label'       => __('Titulo Institucional 4 - Secção 2', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'botao-inst', // Obrigatório
+				'label'       => __('Botão institucional - Secção 2', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'   => 'separator1', // Obrigatório
+				'type' => 'separator' // Obrigatório
+			),
+		)
+	);
+	// SEC 3
+	$metabox_home = new Odin_Metabox(
+		'parte3', // Slug/ID of the Metabox (Required)
+		'Terceira parte', // Metabox name (Required)
+		'page', // Slug of Post Type (Optional)
+		'normal', // Context (options: normal, advanced, or side) (Optional)
+		'high', // Priority (options: high, core, default or low) (Optional)
+		'page-home.php'
+	);
+
+	$metabox_home->set_fields(
+		array(
+			// Terceira Secção - 3
+
+			array(
+				'id'          => 'header-title-institucional', // Obrigatório
+				'label'       => __('Titulo Header - Secção 3', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'title-institucional', // Obrigatório
+				'label'       => __('Titulo Institucional - Secção 3', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'description-institucional', // Obrigatório
+				'label'       => __('Descrição - Secção 3', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'num-inst1-s3', // Required
+				'label'       => __('Valor 1 - Secção 3', 'odin'), // Required
+				'type'        => 'input', // Required
+				// 'default'  => 'Default text', // Optional
+				// 'description' => __( 'HTML5 number field description', 'odin' ), // Optional
+				'attributes'  => array( // Optional (html input elements)
+					'type' => 'number',
+				)
+			),
+			array(
+				'id'          => 'num-inst2-s3', // Required
+				'label'       => __('Valor 2 - Secção 3', 'odin'), // Required
+				'type'        => 'input', // Required
+				// 'default'  => 'Default text', // Optional
+				// 'description' => __( 'HTML5 number field description', 'odin' ), // Optional
+				'attributes'  => array( // Optional (html input elements)
+					'type' => 'number',
+				)
+			),
+			array(
+				'id'          => 'num-inst3-s3', // Required
+				'label'       => __('Valor 3 - Secção 3', 'odin'), // Required
+				'type'        => 'input', // Required
+				// 'default'  => 'Default text', // Optional
+				// 'description' => __( 'HTML5 number field description', 'odin' ), // Optional
+				'attributes'  => array( // Optional (html input elements)
+					'type' => 'number',
+				)
+			),
+			array(
+				'id'   => 'separator1', // Obrigatório
+				'type' => 'separator' // Obrigatório
+			),
+		)
+	);
+	// SEC 4
+	$metabox_home = new Odin_Metabox(
+		'parte4', // Slug/ID of the Metabox (Required)
+		'Quarta parte', // Metabox name (Required)
+		'page', // Slug of Post Type (Optional)
+		'normal', // Context (options: normal, advanced, or side) (Optional)
+		'high', // Priority (options: high, core, default or low) (Optional)
+		'page-home.php'
+	);
+
+	$metabox_home->set_fields(
+		array(
+			// Quarta Secção - 4
+
+			array(
+				'id'          => 'header-title-s4', // Obrigatório
+				'label'       => __('Titulo - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'description-s4', // Obrigatório
+				'label'       => __('Descrição - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+
+			// Box 1
+			array(
+				'id'          => 'image1-s4', // Obrigatório
+				'label'       => __('Imagem 1 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'image', // Obrigatório
+				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'box-title1-s4', // Obrigatório
+				'label'       => __('Titulo 1 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'box-description1-s4', // Obrigatório
+				'label'       => __('Descrição 1 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+
+			// Box 2
+
+			array(
+				'id'          => 'image2-s4', // Obrigatório
+				'label'       => __('Imagem 1 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'image', // Obrigatório
+				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'box-title2-s4', // Obrigatório
+				'label'       => __('Titulo 2 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'box-description2-s4', // Obrigatório
+				'label'       => __('Descrição 2 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+
+			// Box 3
+
+			array(
+				'id'          => 'image3-s4', // Obrigatório
+				'label'       => __('Imagem 3 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'image', // Obrigatório
+				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'box-title3-s4', // Obrigatório
+				'label'       => __('Titulo 3 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'box-description3-s4', // Obrigatório
+				'label'       => __('Descrição 3 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+
+			// Box 4
+
+			array(
+				'id'          => 'image4-s4', // Obrigatório
+				'label'       => __('Imagem 4 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'image', // Obrigatório
+				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'box-title4-s4', // Obrigatório
+				'label'       => __('Titulo 4 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'box-description4-s4', // Obrigatório
+				'label'       => __('Descrição 4 - Secção 4', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+
+			array(
+				'id'   => 'separator1', // Obrigatório
+				'type' => 'separator' // Obrigatório
+			),
+		)
+	);
+	// SEC 5
+	$metabox_home = new Odin_Metabox(
+		'parte5', // Slug/ID of the Metabox (Required)
+		'Quinta parte', // Metabox name (Required)
+		'page', // Slug of Post Type (Optional)
+		'normal', // Context (options: normal, advanced, or side) (Optional)
+		'high', // Priority (options: high, core, default or low) (Optional)
+		'page-home.php'
+	);
+
+	$metabox_home->set_fields(
+		array(
+			// Quinta Secção - 5
+
+			array(
+				'id'          => 'header-title-s5', // Obrigatório
+				'label'       => __('Titulo - Secção 5', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'description-s5', // Obrigatório
+				'label'       => __('Descrição - Secção 5', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'   => 'separator1', // Obrigatório
+				'type' => 'separator' // Obrigatório
+			),
+
+			array(
+				'id'          => 'image1-s5', // Obrigatório
+				'label'       => __('Imagem 1 - Secção 5', 'odin'), // Obrigatório
+				'type'        => 'image', // Obrigatório
+				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'data-banner1-s5', // Obrigatório
+				'label'       => __('Data 2 - Secção 5', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'service1-s5', // Obrigatório
+				'label'       => __('Serviço - Secção 5', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'   => 'separator1', // Obrigatório
+				'type' => 'separator' // Obrigatório
+			),
+
+			array(
+				'id'          => 'image2-s5', // Obrigatório
+				'label'       => __('Imagem 2 - Secção 5', 'odin'), // Obrigatório
+				'type'        => 'image', // Obrigatório
+				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'data-banner2-s5', // Obrigatório
+				'label'       => __('Data 2 - Secção 5', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'service2-s5', // Obrigatório
+				'label'       => __('Serviço 2 - Secção 5', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'   => 'separator1', // Obrigatório
+				'type' => 'separator' // Obrigatório
+			),
+
+			array(
+				'id'          => 'image3-s5', // Obrigatório
+				'label'       => __('Imagem 3 - Secção 5', 'odin'), // Obrigatório
+				'type'        => 'image', // Obrigatório
+				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'data-banner3-s5', // Obrigatório
+				'label'       => __('Data 3 - Secção 5', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'service3-s5', // Obrigatório
+				'label'       => __('Serviço 3 - Secção 5', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+		)
+	);
+
+	// SEC 6
+
+	$metabox_home = new Odin_Metabox(
+		'parte6', // Slug/ID of the Metabox (Required)
+		'Sexta parte', // Metabox name (Required)
+		'page', // Slug of Post Type (Optional)
+		'normal', // Context (options: normal, advanced, or side) (Optional)
+		'high', // Priority (options: high, core, default or low) (Optional)
+		'page-home.php'
+	);
+
+	$metabox_home->set_fields(
+		array(
+			array(
+				'id'          => 'header-title-s6', // Obrigatório
+				'label'       => __('Titulo - Secção 6', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+			array(
+				'id'          => 'description-s6', // Obrigatório
+				'label'       => __('Descrição - Secção 6', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+				'default'     => 'Default text', // Opcional
+				'description' => __('Descrition Example', 'odin'), // Opcional
+			),
+		)
+	);
+}
+
+add_action('init', 'metabox', 1);
+
+
+$metabox_home = new Odin_Metabox(
+	'valores-box', // Slug/ID of the Metabox (Required)
+	'Box Valores', // Metabox name (Required)
+	'Valores', // Slug of Post Type (Optional)
+	'normal', // Context (options: normal, advanced, or side) (Optional)
+	'high', // Priority (options: high, core, default or low) (Optional)
+);
+
+$metabox_home->set_fields(
+	array(
+		array(
+			'id'          => 'titulo-valor', // Obrigatório
+			'label'       => __('Nome promoção', 'odin'), // Obrigatório
+			'type'        => 'text', // Obrigatório
+			'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+				'placeholder' => __('Titulo da promoção')
+			),
+			// 'default'     => 'Default text', // Opcional
+			// 'description' => __('Descrition Example', 'odin'), // Opcional
+		),
+		array(
+			'id'          => 'valor', // Required
+			'label'       => __('Titulo Valor', 'odin'), // Required
+			'type'        => 'text', // Required
+			// 'default'  => 'Default text', // Optional
+			// 'description' => __( 'HTML5 number field description', 'odin' ), // Optional
+			'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+				'placeholder' => __('Valor da promoção')
+			),
+		),
+		array(
+			'id'          => 'descricao-valor', // Obrigatório
+			'label'       => __('Descrição Valor', 'odin'), // Obrigatório
+			'type'        => 'editor', // Obrigatório
+			'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+				'placeholder' => __('Descrição dos valores')
+			),
+			// 'default'     => 'Default text', // Opcional
+			// 'description' => __('Descrition Example', 'odin'), // Opcional
+		)
+	)
+);
+
+$video = new Odin_Post_Type(
+	'Valores', // Nome (Singular) do Post Type.
+	'Valores' // Slug do Post Type.
+);
+
+$video->set_labels(
+	array(
+		'menu_name' => __('Valores', 'odin')
+	)
+);
+
+$video->set_arguments(
+	array(
+		'supports' => array('title')
+	)
+);
