@@ -475,6 +475,55 @@ get_header(); ?>
         </div>
       </div>
       <div class="row pricing-cards">
+        <?php
+        // Query custom post type 'Valores'
+        $args = array(
+          'post_type' => 'valores', // Nome do post type
+          'posts_per_page' => -1,   // Número de posts para mostrar, -1 para todos
+          'post_status' => 'publish' // Apenas posts publicados
+        );
+
+        // Executar a query
+        $valores_query = new WP_Query($args);
+
+        // Loop customizado
+        if ($valores_query->have_posts()) :
+          while ($valores_query->have_posts()) : $valores_query->the_post();
+            // Exibir título e conteúdo do post
+            // Listar todos os metadados do post
+            $meta_values = get_post_meta(get_the_ID());
+        ?>
+            <div class="col-12 col-md-6 col-lg-3 pricing-card">
+              <div class="pricing-box wow fadeInUp">
+                <div class="pricing-box-header position-relative">
+                  <div class="pricing-header-overlay"></div>
+                  <div class="header-content">
+                    <h4 class="pricing-price color-green"><?php print_r($meta_values['valor']['0']) ?></h4>
+                    <i class="lni lni-real real">R$</i>
+                    <p class="sub-text"><?php print_r($meta_values['titulo-valor']['0']) ?></p>
+                  </div>
+                </div>
+                <div class="pricing-box-detail position-relative">
+                  <div class="pricing-detail-overlay"></div>
+                  <ul>
+                    <?php print_r($meta_values['descricao-valor']['0']) ?>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+        <?php
+          // Listar todos os metadados do post
+          // $meta_values = get_post_meta(get_the_ID());
+          // if ($meta_values) {
+          //   print_r($meta_values);
+          // }
+          endwhile;
+          wp_reset_postdata(); // Reseta os dados da query
+        else :
+          echo '<p>No posts found</p>';
+        endif;
+        ?>
         <div class="col-12 col-md-6 col-lg-3 pricing-card">
           <div class="pricing-box wow fadeInUp">
             <div class="pricing-box-header position-relative">
@@ -538,7 +587,7 @@ get_header(); ?>
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 pricing-card active">
+        <div class="col-12 col-md-6 col-lg-3 pricing-card">
           <div class="pricing-box wow fadeInUp" data-wow-delay=".7s">
             <div class="pricing-box-header position-relative">
               <div class="pricing-header-overlay"></div>
