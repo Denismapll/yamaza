@@ -94,7 +94,7 @@ get_header(); ?>
 
   </header>
   <!--Header End-->
-
+<?php $textos = get_post_meta(get_the_id());?>
   <!--Banner start-->
   <section class="banner-slider position-relative cursor-light" id="banner-slider">
     <div class="row banner-slider-row no-gutters">
@@ -103,7 +103,7 @@ get_header(); ?>
           <div class="container">
             <div class="detail-text">
               <div class="inner-content position-relative text-center" data-depth="0.05">
-                <h4 class="heading">Design.<span>Revolution</span></h4>
+                <h4 class="heading"><?= $textos['header1-title-s1'][0]?></h4>
                 <div class="main-ring">
                   <div class="slider-ring"></div>
                 </div>
@@ -121,9 +121,8 @@ get_header(); ?>
             <div class="container-fluid">
               <div class="detail-text text-right ml-auto mr-4">
                 <span class="sub-heading">Simple & Easy</span>
-                <h4 class="heading">Digital Marketing</h4>
-                <p class="text">Lorem ipsum is simply dummy text of the printing and typesetting. Lorem
-                  Ipsum has been the industry’s standard dummy. </p>
+                <h4 class="heading"><?= $textos['header2-title-s1'][0]?></h4>
+                <p class="text"><?= $textos['description2-s1'][0]?> </p>
                 <a class="btn white-trans-btn rounded-pill white-trans-btn-yellow-hvr">Get Started Now
                   <span></span><span></span><span></span><span></span>
                 </a>
@@ -137,9 +136,8 @@ get_header(); ?>
             <div class="container-fluid">
               <div class="detail-text text-left mr-auto ml-4">
                 <span class="sub-heading">Simple & Easy</span>
-                <h4 class="heading">Creative Websites</h4>
-                <p class="text">Lorem ipsum is simply dummy text of the printing and typesetting. Lorem
-                  Ipsum has been the industry’s standard dummy. </p>
+                <h4 class="heading"><?= $textos['header3-title-s1'][0]?></h4>
+                <p class="text"><?= $textos['description3-s1'][0]?> </p>
                 <a class="btn white-trans-btn rounded-pill white-trans-btn-green-hvr">Get Started Now
                   <span></span><span></span><span></span><span></span>
                 </a>
@@ -154,7 +152,9 @@ get_header(); ?>
     </div>
   </section>
   <!--Banner End-->
-
+  <pre>
+<?php print_r(get_post_meta(6)); ?>
+</pre>
   <!--Features sec start-->
   <section id="feature-sec" class="feature-sec padding-top padding-bottom">
     <div class="container">
@@ -162,9 +162,8 @@ get_header(); ?>
         <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12 text-center">
           <div class="text">
             <div class="home-text text-black">
-              <h4 class="heading">We are Digital Agency</h4>
-              <p class="text">Lorem ipsum is simply dummy text of the printing and typesetting. Lorem
-                Ipsum has been the industry’s standard dummy. </p>
+              <h4 class="heading"><?= $textos['titulo-inst-s2'][0]?></h4>
+              <p class="text"><?= $textos['description-inst-s2'][0]?> </p>
             </div>
           </div>
         </div>
@@ -177,7 +176,7 @@ get_header(); ?>
               <i class="lni lni-bulb"></i>
             </div>
             <div class="card-body">
-              <p class="card-text sub-heading text-black">We have some creative ideas for you.</p>
+              <p class="card-text sub-heading text-black"><?= $textos['titulo-inst2-s2'][0]?></p>
             </div>
           </div>
         </div>
@@ -188,7 +187,7 @@ get_header(); ?>
               <i class="lni lni-briefcase color-green"></i>
             </div>
             <div class="card-body">
-              <p class="card-text sub-heading text-black">Your business is our top priority.</p>
+              <p class="card-text sub-heading text-black"><?= $textos['titulo-inst3-s2'][0]?></p>
             </div>
           </div>
 
@@ -200,7 +199,7 @@ get_header(); ?>
               <i class="lni lni-heart"></i>
             </div>
             <div class="card-body">
-              <p class="card-text sub-heading text-black">We love our valued customers.</p>
+              <p class="card-text sub-heading text-black"><?= $textos['titulo-inst4-s2'][0]?></p>
             </div>
           </div>
 
@@ -208,7 +207,7 @@ get_header(); ?>
       </div>
       <div class="row">
         <div class="col-12 padding-top-half text-center">
-          <a href="#" class="btn blue-btn btn-hvr btn-hvr-yellow rounded-pill">Start Your Project
+          <a href="#" class="btn blue-btn btn-hvr btn-hvr-yellow rounded-pill"><?= $textos['botao-inst-s2'][0] ?>
             <span></span><span></span><span></span><span></span>
           </a>
         </div>
@@ -224,10 +223,9 @@ get_header(); ?>
         <div class="col-12 col-md-10 offset-md-1 col-lg-7 offset-lg-0 text-left p-0 text-center text-lg-left">
           <div class="stats-text wow slideInLeft">
             <div class="home-text text-black">
-              <span class="sub-heading">Let us show you some stats</span>
-              <h4 class="heading mt-3 mb-4">We have done great stuff over the past few years.</h4>
-              <p class="text mb-3">There are many variations of passages of Lorem Ipsum available, but the
-                majority have suffered alteration in some form, by injected .</p>
+              <span class="sub-heading"><?= $textos['header-title-institucional-s3'][0] ?></span>
+              <h4 class="heading mt-3 mb-4"><?= $textos['title-institucional-s3'][0] ?></h4>
+              <p class="text mb-3"><?= $textos['description-institucional-s3'][0] ?></p>
             </div>
           </div>
         </div>
@@ -247,7 +245,7 @@ get_header(); ?>
                   <i class="fas fa-users color-green"></i>
                 </div>
                 <div class="stats-box-text ml-4">
-                  <h1 class="numbering">500+</h1>
+                  <h1 class="numbering"><?= $textos['num-inst1-s3'][0] ?>+</h1>
                   <p class="stat-sub-heading">Happy Clients</p>
                 </div>
               </div>
@@ -259,7 +257,7 @@ get_header(); ?>
                   <i class="fas fa-list color-blue"></i>
                 </div>
                 <div class="stats-box-text ml-4">
-                  <h1 class="numbering">10740+</h1>
+                  <h1 class="numbering"><?= $textos['num-inst2-s3'][0] ?>+</h1>
                   <p class="stat-sub-heading">Lines of Code</p>
                 </div>
               </div>
@@ -271,7 +269,7 @@ get_header(); ?>
                   <i class="fas fa-check color-yellow"></i>
                 </div>
                 <div class="stats-box-text ml-4">
-                  <h1 class="numbering">200+</h1>
+                  <h1 class="numbering"><?= $textos['num-inst3-s3'][0] ?>+</h1>
                   <p class="stat-sub-heading">Project Completed</p>
                 </div>
               </div>
@@ -289,9 +287,8 @@ get_header(); ?>
       <div class="row">
         <div class="col-12 col-md-10 col-lg-6 offset-lg-3 offset-md-1 text-center">
           <div class="team-text text-black">
-            <h1 class="main-heading mb-4">Meet The Team</h1>
-            <p class="sub-heading mb-4">Lorem ipsum is simply dummy text of the printing and typesetting.
-              Lorem Ipsum has been the industry’s standard dummy.</p>
+            <h1 class="main-heading mb-4"><?= $textos['header-title-s4'][0] ?></h1>
+            <p class="sub-heading mb-4"><?= $textos['description-s4'][0] ?></p>
           </div>
         </div>
       </div>
@@ -516,7 +513,7 @@ get_header(); ?>
           // Listar todos os metadados do post
           // $meta_values = get_post_meta(get_the_ID());
           // if ($meta_values) {
-          //   print_r($meta_values);
+          // print_r($meta_values['active'][0]);
           // }
           endwhile;
           wp_reset_postdata(); // Reseta os dados da query
@@ -524,94 +521,19 @@ get_header(); ?>
           echo '<p>No posts found</p>';
         endif;
         ?>
-        <div class="col-12 col-md-6 col-lg-3 pricing-card">
-          <div class="pricing-box wow fadeInUp">
-            <div class="pricing-box-header position-relative">
-              <div class="pricing-header-overlay"></div>
-              <div class="header-content">
-                <h4 class="pricing-price color-green">4.99</h4>
-                <i class="lni lni-real real">R$</i>
-                <p class="sub-text">Monthly Billing</p>
-              </div>
-            </div>
-            <div class="pricing-box-detail position-relative">
-              <div class="pricing-detail-overlay"></div>
-              <ul>
-                <li>Full access</li>
-                <li>Unlimited Bandwidth</li>
-                <li>Email Accounts</li>
-                <li>4 Free Forks Every Months</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3 pricing-card">
-          <div class="pricing-box wow fadeInUp" data-wow-delay=".3s">
-            <div class="pricing-box-header position-relative">
-              <div class="pricing-header-overlay"></div>
-              <div class="header-content">
-                <h4 class="pricing-price color-yellow">11.95</h4>
-                <i class="lni lni-real real">R$</i>
-                <p class="sub-text">Quarterly Billing</p>
-              </div>
-            </div>
-            <div class="pricing-box-detail position-relative">
-              <div class="pricing-detail-overlay"></div>
-              <ul>
-                <li>Full access</li>
-                <li>Unlimited Bandwidth</li>
-                <li>Email Accounts</li>
-                <li>4 Free Forks Every Months</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3 pricing-card">
-          <div class="pricing-box wow fadeInUp" data-wow-delay=".5s">
-            <div class="pricing-box-header position-relative">
-              <div class="pricing-header-overlay"></div>
-              <div class="header-content">
-                <h4 class="pricing-price color-blue">25.99</h4>
-                <i class="lni lni-real real">R$</i>
-                <p class="sub-text">Biannual Billing</p>
-              </div>
-            </div>
-            <div class="pricing-box-detail position-relative">
-              <div class="pricing-detail-overlay"></div>
-              <ul>
-                <li>Full access</li>
-                <li>Unlimited Bandwidth</li>
-                <li>Email Accounts</li>
-                <li>4 Free Forks Every Months</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3 pricing-card">
-          <div class="pricing-box wow fadeInUp" data-wow-delay=".7s">
-            <div class="pricing-box-header position-relative">
-              <div class="pricing-header-overlay"></div>
-              <div class="header-content">
-                <h4 class="pricing-price color-green">45.95</h4>
-                <i class="lni lni-real real">R$</i>
-                <p class="sub-text">Yearly Billing</p>
-              </div>
-            </div>
-            <div class="pricing-box-detail position-relative">
-              <div class="pricing-detail-overlay"></div>
-              <ul>
-                <li>Full access</li>
-                <li>Unlimited Bandwidth</li>
-                <li>Email Accounts</li>
-                <li>4 Free Forks Every Months</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
   <!--Pricing section end-->
+
+  <style>
+    @media screen and (max-width: 768px) {
+      .row.mt-5.reverse {
+        flex-direction: column-reverse !important;
+      }
+    }
+  </style>
 
   <!--Blog section start-->
   <section id="blog-sec" class="blog-sec padding-top padding-bottom bg-light-gray">
@@ -631,6 +553,24 @@ get_header(); ?>
             <a class="btn blue-btn btn-hvr btn-hvr-green rounded-pill" href="design-agency/standalone.html">Learn More
               <span></span><span></span><span></span><span></span>
             </a>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 reverse">
+        <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-0 text-center text-lg-left">
+          <div class="blog-detail wow fadeInRight">
+            <h4 class="heading">Design Blogs</h4>
+            <p class="text">Lorem ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum
+              has been the industry.</p>
+            <a class="btn blue-btn btn-hvr btn-hvr-green rounded-pill" href="design-agency/standalone.html">Learn More
+              <span></span><span></span><span></span><span></span>
+            </a>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="blog-img wow fadeInLeft">
+            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/blog-mokeup.png">
+            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/blog-mokup-img.png" id="mokeup-img">
           </div>
         </div>
       </div>

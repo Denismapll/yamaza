@@ -343,55 +343,55 @@ function metabox()
 			 * Default input examples.
 			 */
 			array(
-				'id'          => 'Header', // Obrigatório
-				'label'       => __('Texto box 1 - Secção 1', 'odin'), // Obrigatório
+				'id'          => 'header1-title-s1', // Obrigatório
+				'label'       => __('Titulo box 1 - Secção 1', 'odin'), // Obrigatório
 				'type'        => 'text', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
-				'id'          => 'Header2', // Obrigatório
-				'label'       => __('Texto box 2 - Secção 1', 'odin'), // Obrigatório
+				'id'          => 'header2-title-s1', // Obrigatório
+				'label'       => __('Titulo box 2 - Secção 1', 'odin'), // Obrigatório
 				'type'        => 'text', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
-				'id'          => 'description2', // Obrigatório
+				'id'          => 'description2-s1', // Obrigatório
 				'label'       => __('Descrição 2 - Secção 1', 'odin'), // Obrigatório
 				'type'        => 'textarea', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 
 			array(
-				'id'          => 'Header3', // Obrigatório
-				'label'       => __('Texto box 3 - Secção 1', 'odin'), // Obrigatório
+				'id'          => 'header3-title-s1', // Obrigatório
+				'label'       => __('Titulo box 3 - Secção 1', 'odin'), // Obrigatório
 				'type'        => 'text', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
-				'id'          => 'description3', // Obrigatório
+				'id'          => 'description3-s1', // Obrigatório
 				'label'       => __('Descrição 2 - Secção 1', 'odin'), // Obrigatório
 				'type'        => 'textarea', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),            // Separator.
 			array(
 				'id'   => 'separator1', // Obrigatório
@@ -414,64 +414,64 @@ function metabox()
 			// Segunda Secção Home - 2
 
 			array(
-				'id'          => 'titulo-inst', // Obrigatório
+				'id'          => 'titulo-inst-s2', // Obrigatório
 				'label'       => __('Titulo Institucional - Secção 2', 'odin'), // Obrigatório
 				'type'        => 'text', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
-				'id'          => 'description-inst', // Obrigatório
+				'id'          => 'description-inst-s2', // Obrigatório
 				'label'       => __('Descrição Institucional - Secção 2', 'odin'), // Obrigatório
 				'type'        => 'textarea', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
-				'id'          => 'titulo-inst2', // Obrigatório
+				'id'          => 'titulo-inst2-s2', // Obrigatório
 				'label'       => __('Titulo Institucional 2 - Secção 2', 'odin'), // Obrigatório
 				'type'        => 'text', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
-				'id'          => 'titulo-inst3', // Obrigatório
+				'id'          => 'titulo-inst3-s2', // Obrigatório
 				'label'       => __('Titulo Institucional 3 - Secção 2', 'odin'), // Obrigatório
 				'type'        => 'text', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
-				'id'          => 'titulo-inst4', // Obrigatório
+				'id'          => 'titulo-inst4-s2', // Obrigatório
 				'label'       => __('Titulo Institucional 4 - Secção 2', 'odin'), // Obrigatório
 				'type'        => 'text', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
-				'id'          => 'botao-inst', // Obrigatório
+				'id'          => 'botao-inst-s2', // Obrigatório
 				'label'       => __('Botão institucional - Secção 2', 'odin'), // Obrigatório
 				'type'        => 'text', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'   => 'separator1', // Obrigatório
@@ -494,34 +494,34 @@ function metabox()
 			// Terceira Secção - 3
 
 			array(
-				'id'          => 'header-title-institucional', // Obrigatório
+				'id'          => 'header-title-institucional-s3', // Obrigatório
 				'label'       => __('Titulo Header - Secção 3', 'odin'), // Obrigatório
 				'type'        => 'text', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
-				'id'          => 'title-institucional', // Obrigatório
+				'id'          => 'title-institucional-s3', // Obrigatório
 				'label'       => __('Titulo Institucional - Secção 3', 'odin'), // Obrigatório
 				'type'        => 'text', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
-				'id'          => 'description-institucional', // Obrigatório
+				'id'          => 'description-institucional-s3', // Obrigatório
 				'label'       => __('Descrição - Secção 3', 'odin'), // Obrigatório
 				'type'        => 'textarea', // Obrigatório
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'          => 'num-inst1-s3', // Required
@@ -580,8 +580,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'          => 'description-s4', // Obrigatório
@@ -590,8 +590,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 
 			// Box 1
@@ -600,7 +600,7 @@ function metabox()
 				'label'       => __('Imagem 1 - Secção 4', 'odin'), // Obrigatório
 				'type'        => 'image', // Obrigatório
 				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
 			),
 			array(
 				'id'          => 'box-title1-s4', // Obrigatório
@@ -609,8 +609,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'          => 'box-description1-s4', // Obrigatório
@@ -619,8 +619,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 
 			// Box 2
@@ -630,7 +630,7 @@ function metabox()
 				'label'       => __('Imagem 1 - Secção 4', 'odin'), // Obrigatório
 				'type'        => 'image', // Obrigatório
 				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
 			),
 			array(
 				'id'          => 'box-title2-s4', // Obrigatório
@@ -639,8 +639,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'          => 'box-description2-s4', // Obrigatório
@@ -649,8 +649,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 
 			// Box 3
@@ -660,7 +660,7 @@ function metabox()
 				'label'       => __('Imagem 3 - Secção 4', 'odin'), // Obrigatório
 				'type'        => 'image', // Obrigatório
 				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
 			),
 			array(
 				'id'          => 'box-title3-s4', // Obrigatório
@@ -669,8 +669,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'          => 'box-description3-s4', // Obrigatório
@@ -679,8 +679,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 
 			// Box 4
@@ -690,7 +690,7 @@ function metabox()
 				'label'       => __('Imagem 4 - Secção 4', 'odin'), // Obrigatório
 				'type'        => 'image', // Obrigatório
 				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
 			),
 			array(
 				'id'          => 'box-title4-s4', // Obrigatório
@@ -699,8 +699,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'          => 'box-description4-s4', // Obrigatório
@@ -709,8 +709,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 
 			array(
@@ -740,8 +740,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'          => 'description-s5', // Obrigatório
@@ -750,8 +750,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'   => 'separator1', // Obrigatório
@@ -763,7 +763,7 @@ function metabox()
 				'label'       => __('Imagem 1 - Secção 5', 'odin'), // Obrigatório
 				'type'        => 'image', // Obrigatório
 				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
 			),
 			array(
 				'id'          => 'data-banner1-s5', // Obrigatório
@@ -772,8 +772,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'          => 'service1-s5', // Obrigatório
@@ -782,8 +782,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'   => 'separator1', // Obrigatório
@@ -795,7 +795,7 @@ function metabox()
 				'label'       => __('Imagem 2 - Secção 5', 'odin'), // Obrigatório
 				'type'        => 'image', // Obrigatório
 				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
 			),
 			array(
 				'id'          => 'data-banner2-s5', // Obrigatório
@@ -804,8 +804,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'          => 'service2-s5', // Obrigatório
@@ -814,8 +814,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'   => 'separator1', // Obrigatório
@@ -827,7 +827,7 @@ function metabox()
 				'label'       => __('Imagem 3 - Secção 5', 'odin'), // Obrigatório
 				'type'        => 'image', // Obrigatório
 				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
 			),
 			array(
 				'id'          => 'data-banner3-s5', // Obrigatório
@@ -836,8 +836,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'          => 'service3-s5', // Obrigatório
@@ -846,8 +846,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 		)
 	);
@@ -872,8 +872,8 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
 			),
 			array(
 				'id'          => 'description-s6', // Obrigatório
@@ -882,8 +882,83 @@ function metabox()
 				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
 					'placeholder' => __('Some text here!')
 				),
-				'default'     => 'Default text', // Opcional
-				'description' => __('Descrition Example', 'odin'), // Opcional
+
+
+			),
+		)
+	);
+
+	// SEC 7
+
+	$metabox_home = new Odin_Metabox(
+		'parte7', // Slug/ID of the Metabox (Required)
+		'Sétima parte', // Metabox name (Required)
+		'page', // Slug of Post Type (Optional)
+		'normal', // Context (options: normal, advanced, or side) (Optional)
+		'high', // Priority (options: high, core, default or low) (Optional)
+		'page-home.php'
+	);
+
+	$metabox_home->set_fields(
+		array(
+			array(
+				'id'          => 'header1-title-s7', // Obrigatório
+				'label'       => __('Titulo 1 - Secção 7', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+
+
+			),
+			array(
+				'id'          => 'description1-s7', // Obrigatório
+				'label'       => __('Descrição 1 - Secção 7', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+
+
+			),
+			array(
+				'id'          => 'image1-s7', // Obrigatório
+				'label'       => __('Imagem 1 - Secção 7', 'odin'), // Obrigatório
+				'type'        => 'image', // Obrigatório
+				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
+
+			),
+			array(
+				'id'   => 'separator1', // Obrigatório
+				'type' => 'separator' // Obrigatório
+			),
+
+			array(
+				'id'          => 'header2-title-s7', // Obrigatório
+				'label'       => __('Titulo 2 - Secção 7', 'odin'), // Obrigatório
+				'type'        => 'text', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+
+
+			),
+			array(
+				'id'          => 'description2-s7', // Obrigatório
+				'label'       => __('Descrição 2 - Secção 7', 'odin'), // Obrigatório
+				'type'        => 'textarea', // Obrigatório
+				'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+					'placeholder' => __('Some text here!')
+				),
+
+
+			),
+			array(
+				'id'          => 'image2-s7', // Obrigatório
+				'label'       => __('Imagem 2 - Secção 7', 'odin'), // Obrigatório
+				'type'        => 'image', // Obrigatório
+				'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
+
 			),
 		)
 	);
