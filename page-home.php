@@ -94,7 +94,7 @@ get_header(); ?>
 
   </header>
   <!--Header End-->
-<?php $textos = get_post_meta(get_the_id());?>
+  <?php $textos = get_post_meta(get_the_id()); ?>
   <!--Banner start-->
   <section class="banner-slider position-relative cursor-light" id="banner-slider">
     <div class="row banner-slider-row no-gutters">
@@ -103,7 +103,7 @@ get_header(); ?>
           <div class="container">
             <div class="detail-text">
               <div class="inner-content position-relative text-center" data-depth="0.05">
-                <h4 class="heading"><?= $textos['header1-title-s1'][0]?></h4>
+                <h4 class="heading"><?= $textos['header1-title-s1'][0] ?></h4>
                 <div class="main-ring">
                   <div class="slider-ring"></div>
                 </div>
@@ -121,8 +121,8 @@ get_header(); ?>
             <div class="container-fluid">
               <div class="detail-text text-right ml-auto mr-4">
                 <span class="sub-heading">Simple & Easy</span>
-                <h4 class="heading"><?= $textos['header2-title-s1'][0]?></h4>
-                <p class="text"><?= $textos['description2-s1'][0]?> </p>
+                <h4 class="heading"><?= $textos['header2-title-s1'][0] ?></h4>
+                <p class="text"><?= $textos['description2-s1'][0] ?> </p>
                 <a class="btn white-trans-btn rounded-pill white-trans-btn-yellow-hvr">Get Started Now
                   <span></span><span></span><span></span><span></span>
                 </a>
@@ -136,8 +136,8 @@ get_header(); ?>
             <div class="container-fluid">
               <div class="detail-text text-left mr-auto ml-4">
                 <span class="sub-heading">Simple & Easy</span>
-                <h4 class="heading"><?= $textos['header3-title-s1'][0]?></h4>
-                <p class="text"><?= $textos['description3-s1'][0]?> </p>
+                <h4 class="heading"><?= $textos['header3-title-s1'][0] ?></h4>
+                <p class="text"><?= $textos['description3-s1'][0] ?> </p>
                 <a class="btn white-trans-btn rounded-pill white-trans-btn-green-hvr">Get Started Now
                   <span></span><span></span><span></span><span></span>
                 </a>
@@ -152,9 +152,6 @@ get_header(); ?>
     </div>
   </section>
   <!--Banner End-->
-  <pre>
-<?php print_r(get_post_meta(6)); ?>
-</pre>
   <!--Features sec start-->
   <section id="feature-sec" class="feature-sec padding-top padding-bottom">
     <div class="container">
@@ -162,8 +159,8 @@ get_header(); ?>
         <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12 text-center">
           <div class="text">
             <div class="home-text text-black">
-              <h4 class="heading"><?= $textos['titulo-inst-s2'][0]?></h4>
-              <p class="text"><?= $textos['description-inst-s2'][0]?> </p>
+              <h4 class="heading"><?= $textos['titulo-inst-s2'][0] ?></h4>
+              <p class="text"><?= $textos['description-inst-s2'][0] ?> </p>
             </div>
           </div>
         </div>
@@ -176,7 +173,7 @@ get_header(); ?>
               <i class="lni lni-bulb"></i>
             </div>
             <div class="card-body">
-              <p class="card-text sub-heading text-black"><?= $textos['titulo-inst2-s2'][0]?></p>
+              <p class="card-text sub-heading text-black"><?= $textos['titulo-inst2-s2'][0] ?></p>
             </div>
           </div>
         </div>
@@ -187,7 +184,7 @@ get_header(); ?>
               <i class="lni lni-briefcase color-green"></i>
             </div>
             <div class="card-body">
-              <p class="card-text sub-heading text-black"><?= $textos['titulo-inst3-s2'][0]?></p>
+              <p class="card-text sub-heading text-black"><?= $textos['titulo-inst3-s2'][0] ?></p>
             </div>
           </div>
 
@@ -199,7 +196,7 @@ get_header(); ?>
               <i class="lni lni-heart"></i>
             </div>
             <div class="card-body">
-              <p class="card-text sub-heading text-black"><?= $textos['titulo-inst4-s2'][0]?></p>
+              <p class="card-text sub-heading text-black"><?= $textos['titulo-inst4-s2'][0] ?></p>
             </div>
           </div>
 
@@ -297,60 +294,64 @@ get_header(); ?>
         <div class="col-12">
 
           <div id="team-carousal" class="owl-carousel owl-theme team-owl mt-100 text-center">
-            <div class="item">
-              <div class="team-img">
-                <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/team1.png" alt="img">
-              </div>
-              <div class="team-tittle text-left mt-3 mb-3">
-                <div class="name-img">
-                  <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/team-bg1.png" alt="img">
-                  <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/team-bg-hvr.png" class="black-img" alt="img">
-                  <h3 class="name mb-0">Alex Stoke</h3>
-                </div>
-                <p class="sub-heading mb-0 mt-1 text-center text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi placeat pariatur nulla quo vero excepturi architecto rem modi atque velit? Sapiente, impedit laudantium? Tenetur velit repellendus nesciunt delectus? Quae, aut!</p>
-                <!-- <div class="social-icons text-center">
+            <?php
+            $i = 1;
+            // Query custom post type 'Valores'
+            $args = array(
+              'post_type' => 'beneficios', // Nome do post type
+              'posts_per_page' => 4,   // Número de posts para mostrar, -1 para todos
+              'post_status' => 'publish' // Apenas posts publicados
+            );
+
+            // Executar a query
+            $valores_query = new WP_Query($args);
+
+            // Loop customizado
+            if ($valores_query->have_posts()) :
+              while ($valores_query->have_posts()) : $valores_query->the_post();
+                // Exibir título e conteúdo do post
+                // Listar todos os metadados do post
+                $meta_values = get_post_meta(get_the_ID());
+                if ($i == 1) {
+                  $i += 1;
+                } else {
+                  $i = 1;
+                }
+            ?>
+                <div class="item">
+                  <div class="team-img">
+                    <img src="<?php if (!empty($meta_values['benef-img'][0])) {
+                                echo wp_get_attachment_image_url($meta_values['benef-img'][0]);
+                              } else {
+                                echo get_stylesheet_directory_uri() . '/assets/images/team1.png';
+                              } ?>" alt="img">
+                  </div>
+                  <div class="team-tittle text-left mt-3 mb-3">
+                    <div class="name-img">
+                      <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/team-bg<?php echo $i; ?>.png" alt="img">
+                      <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/team-bg-hvr.png" class="black-img" alt="img">
+                      <h3 class="name mb-0"><?= $meta_values['benef-title'][0] ?></h3>
+                    </div>
+                    <p class="sub-heading mb-0 mt-1 text-center text-black"><?= $meta_values['benef-desc'][0] ?></p>
+                    <!-- <div class="social-icons text-center">
                   <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
                   <a href="#" class="twt"><i class="fab fa-twitter"></i></a>
                   <a href="#" class="drb"><i class="fab fa-dribbble"></i></a>
                 </div> -->
-              </div>
-            </div>
-            <div class="item">
-              <div class="team-img mt-20">
-                <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/team2.png" alt="img">
-              </div>
-              <div class="team-tittle text-left mt-3 mb-3">
-                <div class="name-img">
-                  <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/team-bg2.png" alt="img">
-                  <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/team-bg-hvr.png" class="black-img" alt="img">
-                  <h3 class="name mb-0">Lisa Waren</h3>
+                  </div>
                 </div>
-                <p class="sub-heading mb-0 mt-1 text-center text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aspernatur recusandae doloribus dignissimos nulla laboriosam ut unde modi consectetur quod, necessitatibus accusantium et? Facere tempore, optio atque inventore natus maxime?</p>
-                <!-- <div class="social-icons text-center">
-                  <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="twt"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="drb"><i class="fab fa-dribbble"></i></a>
-                </div> -->
-              </div>
-            </div>
-            <div class="item">
-              <div class="team-img mt-20">
-                <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/team3.png" alt="img">
-              </div>
-              <div class="team-tittle text-left mt-3 mb-3">
-                <div class="name-img">
-                  <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/team-bg3.png" alt="img">
-                  <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/team-bg-hvr.png" class="black-img" alt="img">
-                  <h3 class="name mb-0">Lisa Waren</h3>
-                </div>
-                <p class="sub-heading mb-0 mt-1 text-center text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas minima autem voluptas facilis cupiditate magnam vero alias et officiis dignissimos tempore maiores unde, velit quibusdam labore nam? At, pariatur iusto.</p>
-                <!-- <div class="social-icons text-center">
-                  <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="twt"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="drb"><i class="fab fa-dribbble"></i></a>
-                </div> -->
-              </div>
-            </div>
+            <?php
+              // Listar todos os metadados do post
+              // $meta_values = get_post_meta(get_the_ID());
+              // if ($meta_values) {
+              // print_r($meta_values);
+              // }
+              endwhile;
+              wp_reset_postdata(); // Reseta os dados da query
+            else :
+              echo '<p>No posts found</p>';
+            endif;
+            ?>
           </div>
         </div>
       </div>
@@ -375,81 +376,92 @@ get_header(); ?>
       <div class="row position-relative">
         <div class="col-12">
           <div class="portfolio-carousel owl-carousel owl-item">
-            <div class="item">
-              <div class="portfolio-image">
-                <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/p1.jpg">
+            <?php
+            // Query custom post type 'Valores'
+            $args = array(
+              'post_type' => 'banners', // Nome do post type
+              'posts_per_page' => -1,   // Número de posts para mostrar, -1 para todos
+              'post_status' => 'publish',
+              'order' => 'asc' // Apenas posts publicados
+            );
+
+            // Executar a query
+            $valores_query = new WP_Query($args);
+
+            // Loop customizado
+            if ($valores_query->have_posts()) :
+              while ($valores_query->have_posts()) : $valores_query->the_post();
+                // Exibir título e conteúdo do post
+                // Listar todos os metadados do post
+                $meta_values = get_post_meta(get_the_ID());
+            ?>
+                <div class="item">
+                  <div class="portfolio-image">
+                    <!-- <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/p1.jpg"> -->
+                    <img src="<?php if (!empty($meta_values['banner-img'][0])) {
+                                echo wp_get_attachment_image_url($meta_values['banner-img'][0]);
+                              } else {
+                                echo get_stylesheet_directory_uri() . '/assets/images/p1.jpg';
+                              } ?>">
+                  </div>
+                  <div class="row no-gutters portfolio-footer padding-top">
+                    <div class="col-4 col-lg-4 d-flex justify-content-center justify-content-lg-end">
+                      <div class="portfolio-mini-detail">
+                        <h4 class="portfolio-mini-heading"><?= $meta_values['banner-cliente'][0] ?></h4>
+                        <p class="text">Cliente</p>
+                      </div>
+                    </div>
+                    <div class="col-4 col-lg-4 d-flex justify-content-center">
+                      <div class="portfolio-mini-detail">
+                        <h4 class="portfolio-mini-heading"><?= $meta_values['banner-data'][0] ?></h4>
+                        <p class="text">Data</p>
+                      </div>
+                    </div>
+                    <div class="col-4 col-lg-4 d-flex justify-content-center justify-content-lg-start">
+                      <div class="portfolio-mini-detail">
+                        <h4 class="portfolio-mini-heading"><?= $meta_values['banner-servico'][0] ?></h4>
+                        <p class="text">Serviço</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <?php
+              // Listar todos os metadados do post
+              // $meta_values = get_post_meta(get_the_ID());
+              // if ($meta_values) {
+              // print_r($meta_values['active'][0]);
+              // }
+              endwhile;
+              wp_reset_postdata(); // Reseta os dados da query
+            else : ?>
+              <div class="item">
+                <div class="portfolio-image">
+                  <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/p1.jpg">
+                </div>
+                <div class="row no-gutters portfolio-footer padding-top">
+                  <div class="col-4 col-lg-4 d-flex justify-content-center justify-content-lg-end">
+                    <div class="portfolio-mini-detail">
+                      <h4 class="portfolio-mini-heading">#</h4>
+                      <p class="text">Cliente</p>
+                    </div>
+                  </div>
+                  <div class="col-4 col-lg-4 d-flex justify-content-center">
+                    <div class="portfolio-mini-detail">
+                      <h4 class="portfolio-mini-heading">#</h4>
+                      <p class="text">Data</p>
+                    </div>
+                  </div>
+                  <div class="col-4 col-lg-4 d-flex justify-content-center justify-content-lg-start">
+                    <div class="portfolio-mini-detail">
+                      <h4 class="portfolio-mini-heading">#</h4>
+                      <p class="text">Serviço</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="row no-gutters portfolio-footer padding-top">
-                <div class="col-4 col-lg-4 d-flex justify-content-center justify-content-lg-end">
-                  <div class="portfolio-mini-detail">
-                    <h4 class="portfolio-mini-heading">Earphones</h4>
-                    <p class="text">Client</p>
-                  </div>
-                </div>
-                <div class="col-4 col-lg-4 d-flex justify-content-center">
-                  <div class="portfolio-mini-detail">
-                    <h4 class="portfolio-mini-heading">Aug 2020</h4>
-                    <p class="text">Date</p>
-                  </div>
-                </div>
-                <div class="col-4 col-lg-4 d-flex justify-content-center justify-content-lg-start">
-                  <div class="portfolio-mini-detail">
-                    <h4 class="portfolio-mini-heading">Website Design</h4>
-                    <p class="text">Services</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="portfolio-image">
-                <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/p2.jpg">
-              </div>
-              <div class="row no-gutters portfolio-footer padding-top">
-                <div class="col-4 col-lg-4 d-flex justify-content-center justify-content-lg-end">
-                  <div class="portfolio-mini-detail">
-                    <h4 class="portfolio-mini-heading">Laptops</h4>
-                    <p class="text">Client</p>
-                  </div>
-                </div>
-                <div class="col-4 col-lg-4 d-flex justify-content-center">
-                  <div class="portfolio-mini-detail">
-                    <h4 class="portfolio-mini-heading">Sep 2020</h4>
-                    <p class="text">Date</p>
-                  </div>
-                </div>
-                <div class="col-4 col-lg-4 d-flex justify-content-center justify-content-lg-start">
-                  <div class="portfolio-mini-detail">
-                    <h4 class="portfolio-mini-heading">Website SEO</h4>
-                    <p class="text">Services</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="portfolio-image">
-                <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/p3.jpg">
-              </div>
-              <div class="row no-gutters portfolio-footer padding-top">
-                <div class="col-4 col-lg-4 d-flex justify-content-center justify-content-lg-end">
-                  <div class="portfolio-mini-detail">
-                    <h4 class="portfolio-mini-heading">Spray Tans</h4>
-                    <p class="text">Client</p>
-                  </div>
-                </div>
-                <div class="col-4 col-lg-4 d-flex justify-content-center">
-                  <div class="portfolio-mini-detail">
-                    <h4 class="portfolio-mini-heading">June 2020</h4>
-                    <p class="text">Date</p>
-                  </div>
-                </div>
-                <div class="col-4 col-lg-4 d-flex justify-content-center justify-content-lg-start">
-                  <div class="portfolio-mini-detail">
-                    <h4 class="portfolio-mini-heading">Website SEO</h4>
-                    <p class="text">Services</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php
+            endif;
+            ?>
           </div>
         </div>
         <a class="portfolio-links" id="portfolio-arr-left"><i class="fas fa-angle-left"></i> </a>
@@ -464,10 +476,9 @@ get_header(); ?>
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-10 offset-md-1 pricing-heading-area text-center">
-          <h4 class="heading">Web Design Packages</h4>
+          <h4 class="heading"><?= $textos['header-title-s6'][0]; ?></h4>
           <p class="text">
-            Lorem ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been the
-            industry’s standard dummy. Lorem Ipsum has been the industry’s standard dummy.
+            <?= $textos['description-s6'][0]; ?>
           </p>
         </div>
       </div>
@@ -542,15 +553,18 @@ get_header(); ?>
         <div class="col-12 col-lg-6">
           <div class="blog-img wow fadeInLeft">
             <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/blog-mokeup.png">
-            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/blog-mokup-img.png" id="mokeup-img">
+            <img src="<?php if (!empty($textos['image1-s7'][0])) {
+                        echo wp_get_attachment_image_url($textos['image1-s7'][0]);
+                      } else {
+                        echo get_stylesheet_directory_uri() . '/assets/images/blog-mokup-img.png';
+                      } ?>" id="mokeup-img">
           </div>
         </div>
         <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-0 text-center text-lg-left">
           <div class="blog-detail wow fadeInRight">
-            <h4 class="heading">Design Blogs</h4>
-            <p class="text">Lorem ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum
-              has been the industry.</p>
-            <a class="btn blue-btn btn-hvr btn-hvr-green rounded-pill" href="design-agency/standalone.html">Learn More
+            <h4 class="heading"><?= $textos['header1-title-s7'][0]; ?></h4>
+            <p class="text"><?= $textos['description1-s7'][0]; ?></p>
+            <a class="btn blue-btn btn-hvr btn-hvr-green rounded-pill" href="design-agency/standalone.html">Conheça Mais
               <span></span><span></span><span></span><span></span>
             </a>
           </div>
@@ -559,10 +573,9 @@ get_header(); ?>
       <div class="row mt-5 reverse">
         <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-0 text-center text-lg-left">
           <div class="blog-detail wow fadeInRight">
-            <h4 class="heading">Design Blogs</h4>
-            <p class="text">Lorem ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum
-              has been the industry.</p>
-            <a class="btn blue-btn btn-hvr btn-hvr-green rounded-pill" href="design-agency/standalone.html">Learn More
+            <h4 class="heading"><?= $textos['header2-title-s7'][0]; ?></h4>
+            <p class="text"><?= $textos['description2-s7'][0]; ?></p>
+            <a class="btn blue-btn btn-hvr btn-hvr-green rounded-pill" href="design-agency/standalone.html">Conheça Mais
               <span></span><span></span><span></span><span></span>
             </a>
           </div>
@@ -570,13 +583,46 @@ get_header(); ?>
         <div class="col-12 col-lg-6">
           <div class="blog-img wow fadeInLeft">
             <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/blog-mokeup.png">
-            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/blog-mokup-img.png" id="mokeup-img">
+            <img src="<?php if (!empty($textos['image2-s7'][0])) {
+                        echo wp_get_attachment_image_url($textos['image2-s7'][0]);
+                      } else {
+                        echo get_stylesheet_directory_uri() . '/assets/images/blog-mokup-img.png';
+                      } ?>" id="mokeup-img">
           </div>
         </div>
       </div>
     </div>
   </section>
   <!--Blog section end-->
+
+  <!--sponsers section start-->
+  <div class="sponser-sec padding-top padding-bottom bg-light-gray" id="sponser-sec">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="sponser-tags owl-carousel owl-theme insta">
+            <div class="item">
+              <img class="insta-feed" src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/brand4.png">
+            </div>
+            <div class="item">
+              <img class="insta-feed" src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/brand4.png">
+            </div>
+            <div class="item">
+              <img class="insta-feed" src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/brand4.png">
+            </div>
+            <div class="item">
+              <img class="insta-feed" src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/brand4.png">
+            </div>
+            <div class="item">
+              <img class="insta-feed" src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/brand4.png">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--sponsers section end-->
 
   <!--testimonial section start-->
   <div class="testimonial-sec padding-top padding-bottom position-relative" id="testimonial-sec">
@@ -704,6 +750,43 @@ get_header(); ?>
     </div>
   </section>
   <!--Contact section end-->
+
+
+  <script>
+    window.onload = () => {
+      url = document.querySelectorAll('.insta-feed');
+      // Substitua pelo seu token de acesso de longa duração
+      const accessToken = 'IGQWRQMXpmb0k2dHZAaMjRHUU9DUlhXODhMM2dWV3NMT3VVNVprdFRiYW9IT3RTZAEtrMm5ZAX0sxLWk3dmExVlpZAQm1CNXBYWnZA1SWVwb2RQaEZAwTUdIcHk4cE1HaXJnc2ZA5TU1yTUNWREZALb3NnN1RESHY5VmtGWW8ZD';
+
+      // Endpoint da API para obter informações da conta
+      const endpoint = `https://graph.instagram.com/me/media?fields=media_type,media_url&access_token=${accessToken}`;
+
+      // Fazendo a requisição para a API do Instagram Graph
+
+
+      fetch(endpoint)
+        .then(response => response.json())
+        .then(data => {
+          // Exibindo as informações no elemento "result"
+          const resultElement = data;
+          console.log(data.data);
+
+          data.data.forEach((x, y) => {
+            url[y].src = x['media_url'];
+            console.log(y)
+          })
+          // resultElement.innerHTML = `
+          //     <p>ID: ${data.id}</p>
+          //     <p>Username: ${data.username}</p>
+          //     <p>Account Type: ${data.account_type}</p>
+          //     <p>Media Count: ${data.media_count}</p>
+          // `;
+        })
+        .catch(error => {
+          console.error('Erro ao obter informações da API do Instagram:', error);
+        });
+    }
+  </script>
 
   <!--Footer Start-->
   <?php get_footer(); ?>
