@@ -798,7 +798,7 @@ $metabox_home->set_fields(
 );
 
 $valores = new Odin_Post_Type(
-	'Valores', // Nome (Singular) do Post Type.
+	'Valore', // Nome (Singular) do Post Type.
 	'Valores' // Slug do Post Type.
 );
 
@@ -810,7 +810,8 @@ $valores->set_labels(
 
 $valores->set_arguments(
 	array(
-		'supports' => array('title')
+		'supports' => array('title'),
+		'menu_icon' => 'dashicons-money-alt'
 	)
 );
 
@@ -865,7 +866,8 @@ $beneficios->set_labels(
 
 $beneficios->set_arguments(
 	array(
-		'supports' => array('title')
+		'supports' => array('title'),
+		'menu_icon' => 'dashicons-buddicons-groups'
 	)
 );
 
@@ -922,7 +924,7 @@ $metabox_home->set_fields(
 );
 
 $banners = new Odin_Post_Type(
-	'banners', // Nome (Singular) do Post Type.
+	'banner', // Nome (Singular) do Post Type.
 	'banners' // Slug do Post Type.
 );
 
@@ -934,6 +936,108 @@ $banners->set_labels(
 
 $banners->set_arguments(
 	array(
-		'supports' => array('title')
+		'supports' => array('title'),
+		'menu_icon' => 'dashicons-images-alt'
+	)
+);
+
+
+// CRIAÇAO DO POST TYPE E CRIACAO DAS METABOX - DEPOIMENTOS
+
+$metabox_home = new Odin_Metabox(
+	'depoimentos', // Slug/ID of the Metabox (Required)
+	'depoimentos', // Metabox name (Required)
+	'depoimentos', // Slug of Post Type (Optional)
+	'normal', // Context (options: normal, advanced, or side) (Optional)
+	'high', // Priority (options: high, core, default or low) (Optional)
+);
+
+$metabox_home->set_fields(
+	array(
+		array(
+			'id'          => 'depoimento-img', // Obrigatório
+			'label'       => __('Imagem Cliente', 'odin'), // Obrigatório
+			'type'        => 'image', // Obrigatório
+			'default'     => '', // Opcional (deve ser o id de uma depoimento em mídia)
+			'description' => __('Imagem de 100 x 100', 'odin'), // Opcional
+		),
+		array(
+			'id'          => 'depoimento-cliente', // Obrigatório
+			'label'       => __('Nome do Cliente', 'odin'), // Obrigatório
+			'type'        => 'text', // Obrigatório
+			'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+				'placeholder' => __('Some text here!')
+			),
+		),
+
+		array(
+			'id'          => 'depoimento-desc', // Obrigatório
+			'label'       => __('Data do trabalho', 'odin'), // Obrigatório
+			'type'        => 'textarea', // Obrigatório
+			'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+				'placeholder' => __('Some text here!')
+			),
+
+
+		),
+	),
+);
+
+$depoimentos = new Odin_Post_Type(
+	'depoimento', // Nome (Singular) do Post Type.
+	'depoimentos' // Slug do Post Type.
+);
+
+$depoimentos->set_labels(
+	array(
+		'menu_name' => __('Depoimentos', 'odin')
+	)
+);
+
+$depoimentos->set_arguments(
+	array(
+		'supports' => array('title'),
+		'menu-icon' => 'dashicons-admin-comments'
+	)
+);
+
+
+// CRIAÇAO DO POST TYPE E CRIACAO DAS METABOX - PARCEIROS
+
+$metabox_home = new Odin_Metabox(
+	'parceiros', // Slug/ID of the Metabox (Required)
+	'parceiros', // Metabox name (Required)
+	'parceiros', // Slug of Post Type (Optional)
+	'normal', // Context (options: normal, advanced, or side) (Optional)
+	'high', // Priority (options: high, core, default or low) (Optional)
+);
+
+$metabox_home->set_fields(
+	array(
+		array(
+			'id'          => 'parceiros-img', // Obrigatório
+			'label'       => __('Imagem Cliente', 'odin'), // Obrigatório
+			'type'        => 'image', // Obrigatório
+			'default'     => '', // Opcional (deve ser o id de uma parceiros em mídia)
+			'description' => __('Imagem de 130 x 30', 'odin'), // Opcional
+		),
+	),
+);
+
+$parceiros = new Odin_Post_Type(
+	'parceiro', // Nome (Singular) do Post Type.
+	'parceiros' // Slug do Post Type.
+);
+
+$parceiros->set_labels(
+	array(
+		'menu_name' => __('Parceiros', 'odin')
+	)
+);
+
+$parceiros->set_arguments(
+	array(
+		'supports' => array('title'),
+		'menu_icon' => 'dashicons-groups'
 	)
 );

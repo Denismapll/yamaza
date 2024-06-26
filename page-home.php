@@ -36,8 +36,8 @@ get_header(); ?>
         <span></span>
       </a>
 
-      <a class="navbar-brand link" href="index-design-agency.html">
-        <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/logo-white-small.png" class="logo" alt="logo">
+      <a class="navbar-brand link" href="#home">
+        <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/logo-rgb.png" class="logo" alt="logo">
       </a>
     </div>
     <!--Side Nav-->
@@ -48,7 +48,7 @@ get_header(); ?>
         <div class="container">
           <div class="row w-100 side-menu-inner-content">
             <div class="col-12 d-flex justify-content-center align-items-center">
-              <a href="index-design-agency.html" class="navbar-brand"><img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/logo-white.png" alt="logo"></a>
+              <a href="#home" class="navbar-brand"><img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/logo-rgb.png" alt="logo"></a>
             </div>
             <div class="col-12 col-lg-8">
               <nav class="side-nav w-100">
@@ -57,16 +57,16 @@ get_header(); ?>
                     <a class="nav-link scroll" href="#home">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link scroll" href="#feature-sec">About</a>
+                    <a class="nav-link scroll" href="#feature-sec">Sobre</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link scroll" href="#portfolio-sec">Work</a>
+                    <a class="nav-link scroll" href="#portfolio-sec">Trabalho</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link scroll" href="#pricing-sec">Pricing</a>
+                    <a class="nav-link scroll" href="#pricing-sec">Preço</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link scroll" href="#contact-sec">Contact</a>
+                    <a class="nav-link scroll" href="#contact-sec">Contato</a>
                   </li>
                 </ul>
               </nav>
@@ -83,7 +83,7 @@ get_header(); ?>
                   <li><a class="youtube-text-hvr" href="javascript:void(0)"><i class="fab fa-youtube"></i> </a> </li>
                   <li><a class="instagram-text-hvr" href="javascript:void(0)"><i class="fab fa-instagram"></i> </a> </li>
                 </ul>
-                <p class="text-white">&copy; 2023 MegaOne. Made With Love by Themesindustry</p>
+                <p class="text-white">&copy; 2024 Yamaza. Made With Love by Mdd Web</p>
               </div>
             </div>
           </div>
@@ -120,10 +120,10 @@ get_header(); ?>
           <div class="col-12 bg-yellow height-50 d-flex align-items-center slider-right-box">
             <div class="container-fluid">
               <div class="detail-text text-right ml-auto mr-4">
-                <span class="sub-heading">Simple & Easy</span>
+                <span class="sub-heading">Simples & Fácil</span>
                 <h4 class="heading"><?= $textos['header2-title-s1'][0] ?></h4>
                 <p class="text"><?= $textos['description2-s1'][0] ?> </p>
-                <a class="btn white-trans-btn rounded-pill white-trans-btn-yellow-hvr">Get Started Now
+                <a class="btn white-trans-btn rounded-pill white-trans-btn-yellow-hvr">Clique aqui
                   <span></span><span></span><span></span><span></span>
                 </a>
               </div>
@@ -135,10 +135,10 @@ get_header(); ?>
           <div class="col-12 bg-green height-50 d-flex align-items-center slider-right-box">
             <div class="container-fluid">
               <div class="detail-text text-left mr-auto ml-4">
-                <span class="sub-heading">Simple & Easy</span>
+                <span class="sub-heading">Simples & Fácil</span>
                 <h4 class="heading"><?= $textos['header3-title-s1'][0] ?></h4>
                 <p class="text"><?= $textos['description3-s1'][0] ?> </p>
-                <a class="btn white-trans-btn rounded-pill white-trans-btn-green-hvr">Get Started Now
+                <a class="btn white-trans-btn rounded-pill white-trans-btn-green-hvr">Clique aqui
                   <span></span><span></span><span></span><span></span>
                 </a>
               </div>
@@ -243,7 +243,7 @@ get_header(); ?>
                 </div>
                 <div class="stats-box-text ml-4">
                   <h1 class="numbering"><?= $textos['num-inst1-s3'][0] ?>+</h1>
-                  <p class="stat-sub-heading">Happy Clients</p>
+                  <p class="stat-sub-heading">Clientes atendidos</p>
                 </div>
               </div>
             </div>
@@ -255,7 +255,7 @@ get_header(); ?>
                 </div>
                 <div class="stats-box-text ml-4">
                   <h1 class="numbering"><?= $textos['num-inst2-s3'][0] ?>+</h1>
-                  <p class="stat-sub-heading">Lines of Code</p>
+                  <p class="stat-sub-heading">Artes feitas</p>
                 </div>
               </div>
             </div>
@@ -267,7 +267,7 @@ get_header(); ?>
                 </div>
                 <div class="stats-box-text ml-4">
                   <h1 class="numbering"><?= $textos['num-inst3-s3'][0] ?>+</h1>
-                  <p class="stat-sub-heading">Project Completed</p>
+                  <p class="stat-sub-heading">Projetos concluidos</p>
                 </div>
               </div>
             </div>
@@ -364,12 +364,11 @@ get_header(); ?>
     <div class="container">
       <div class="row portfolio-heading-area text-center text-lg-left">
         <div class="col-6 col-md-10 offset-md-1 col-lg-5 offset-lg-0">
-          <h4 class="heading wow fadeInLeft">Latest & <span>Creative Work</span></h4>
+          <h4 class="heading wow fadeInLeft"><?= $textos['header-title-s5'][0] ?></h4>
         </div>
         <div class="col-12 col-md-10 offset-md-1 col-lg-7 offset-lg-0">
           <p class="text wow fadeInRight">
-            Lorem ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been the
-            industry’s standard dummy. Lorem Ipsum has been the industry’s standard dummy.
+            <?= $textos['description-s5'][0] ?>
           </p>
         </div>
       </div>
@@ -596,31 +595,11 @@ get_header(); ?>
   <!--Blog section end-->
 
   <!--sponsers section start-->
-  <div class="sponser-sec padding-top padding-bottom bg-light-gray" id="sponser-sec">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="sponser-tags owl-carousel owl-theme insta">
-            <div class="item">
-              <img class="insta-feed" src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/brand4.png">
-            </div>
-            <div class="item">
-              <img class="insta-feed" src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/brand4.png">
-            </div>
-            <div class="item">
-              <img class="insta-feed" src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/brand4.png">
-            </div>
-            <div class="item">
-              <img class="insta-feed" src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/brand4.png">
-            </div>
-            <div class="item">
-              <img class="insta-feed" src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/brand4.png">
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- LightWidget WIDGET -->
+  <div class="container">
+    <!-- LightWidget WIDGET -->
+    <!-- LightWidget WIDGET -->
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/07c601db698f5aaa9bdad305d59ebf4a.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
   </div>
   <!--sponsers section end-->
 
@@ -632,40 +611,72 @@ get_header(); ?>
           <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-0 order-2 order-lg-1">
             <div class="testimonial-carousel wow fadeInRight">
               <div class="testimonial-box owl-carousel owl-theme">
-                <div class="item text-center">
-                  <div class="icon-holder">
-                    <i class="fas fa-quote-right"></i>
+                <?php
+                // Query custom post type 'Valores'
+                $args = array(
+                  'post_type' => 'depoimentos', // Nome do post type
+                  'posts_per_page' => -1,   // Número de posts para mostrar, -1 para todos
+                  'post_status' => 'publish' // Apenas posts publicados
+                );
+
+                // Executar a query
+                $valores_query = new WP_Query($args);
+
+                // Loop customizado
+                if ($valores_query->have_posts()) :
+                  while ($valores_query->have_posts()) : $valores_query->the_post();
+                    // Exibir título e conteúdo do post
+                    // Listar todos os metadados do post
+                    $meta_values = get_post_meta(get_the_ID());
+                ?>
+                    <div class="item text-center">
+                      <div class="icon-holder">
+                        <i class="fas fa-quote-right"></i>
+                      </div>
+                      <p class="text">
+                        <?= $meta_values['depoimento-desc'][0] ?>
+                      </p>
+                      <div class="img-holder">
+                        <!-- <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/test1.jpg"> -->
+                        <img src="<?php if (!empty($meta_values['depoimento-img'][0])) {
+                                    echo wp_get_attachment_image_url($meta_values['depoimento-img'][0]);
+                                  } else {
+                                    echo get_stylesheet_directory_uri() . '/assets/images/test1.jpg';
+                                  } ?>">
+                      </div>
+                      <h4 class="user-name"><?= $meta_values['depoimento-cliente'][0] ?></h4>
+                    </div>
+                  <?php
+                  // Listar todos os metadados do post
+                  // $meta_values = get_post_meta(get_the_ID());
+                  // if ($meta_values) {
+                  // print_r($meta_values['active'][0]);
+                  // }
+                  endwhile;
+                  wp_reset_postdata(); // Reseta os dados da query
+                else :
+                  ?>
+                  <div class="item text-center">
+                    <div class="icon-holder">
+                      <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="text">
+                      Sem depoimento...
+                    </p>
+                    <div class="img-holder">
+                      <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/test2.jpg">
+                    </div>
+                    <h4 class="user-name">Não há depoimentos :c</h4>
                   </div>
-                  <p class="text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae egestas mi,
-                    vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna laoreet
-                    tellus, eu euismod dolor enim et mi. In at tempor purus.
-                  </p>
-                  <div class="img-holder">
-                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/test1.jpg">
-                  </div>
-                  <h4 class="user-name">Sara Williams</h4>
-                </div>
-                <div class="item text-center">
-                  <div class="icon-holder">
-                    <i class="fas fa-quote-right"></i>
-                  </div>
-                  <p class="text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae egestas mi,
-                    vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna laoreet
-                    tellus, eu euismod dolor enim et mi. In at tempor purus.
-                  </p>
-                  <div class="img-holder">
-                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/test2.jpg">
-                  </div>
-                  <h4 class="user-name">Julia Miltese</h4>
-                </div>
+                <?php
+                endif;
+                ?>
               </div>
             </div>
           </div>
           <div class="col-12 col-md-10 offset-md-1 col-lg-5 offset-lg-0 order-1 order-lg-2 offset-lg-1 d-flex justify-content-center align-items-center text-center text-lg-left">
             <div class="testimonial-details wow fadeInLeft">
-              <h4 class="heading">Happy <span>Customers</span></h4>
+              <h4 class="heading">Depoimentos <span>Clientes</span></h4>
               <p class="text">
                 Lorem ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been
                 the industry’s standard dummy.
@@ -707,30 +718,15 @@ get_header(); ?>
       </div>
     </div>
   </div>
-  <!--sponsers section end-->
+  <!-- sponsers section end -->
 
   <!--Contact section start-->
   <section class="contact-sec padding-top padding-bottom" id="contact-sec">
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-7 wow fadeInLeft">
-          <h4 class="heading text-center text-lg-left">Questions? <span>Let's Get In Touch</span></h4>
-          <form class="row contact-form" id="contact-form-data">
-            <div class="col-sm-12" id="result"></div>
-            <div class="col-12 col-md-5">
-              <input type="text" name="userName" placeholder="Your Name" class="form-control">
-              <input type="email" name="userEmail" placeholder="Email Address *" class="form-control">
-              <input type="text" name="userSubject" placeholder="Subject" class="form-control">
-            </div>
-            <div class="col-12 col-md-7">
-              <textarea class="form-control" name="userMessage" rows="6">Your Message</textarea>
-            </div>
-            <div class="col-12">
-              <a href="javascript:void(0);" class="btn green-btn btn-hvr btn-hvr-blue rounded-pill w-100 contact_btn"><i class="fa fa-spinner fa-spin mr-2 d-none" aria-hidden="true"></i>Send Message
-                <span></span><span></span><span></span><span></span><span></span>
-              </a>
-            </div>
-          </form>
+          <h4 class="heading text-center text-lg-left">Duvidas ? <span>Entre em contato</span></h4>
+          <?php echo do_shortcode('[wpforms id="42"]');?>	
         </div>
         <div class="col-12 col-lg-5 text-center text-lg-left position-relative d-flex align-items-center">
           <div class="contact-details wow fadeInRight">
@@ -750,43 +746,6 @@ get_header(); ?>
     </div>
   </section>
   <!--Contact section end-->
-
-
-  <script>
-    window.onload = () => {
-      url = document.querySelectorAll('.insta-feed');
-      // Substitua pelo seu token de acesso de longa duração
-      const accessToken = 'IGQWRQMXpmb0k2dHZAaMjRHUU9DUlhXODhMM2dWV3NMT3VVNVprdFRiYW9IT3RTZAEtrMm5ZAX0sxLWk3dmExVlpZAQm1CNXBYWnZA1SWVwb2RQaEZAwTUdIcHk4cE1HaXJnc2ZA5TU1yTUNWREZALb3NnN1RESHY5VmtGWW8ZD';
-
-      // Endpoint da API para obter informações da conta
-      const endpoint = `https://graph.instagram.com/me/media?fields=media_type,media_url&access_token=${accessToken}`;
-
-      // Fazendo a requisição para a API do Instagram Graph
-
-
-      fetch(endpoint)
-        .then(response => response.json())
-        .then(data => {
-          // Exibindo as informações no elemento "result"
-          const resultElement = data;
-          console.log(data.data);
-
-          data.data.forEach((x, y) => {
-            url[y].src = x['media_url'];
-            console.log(y)
-          })
-          // resultElement.innerHTML = `
-          //     <p>ID: ${data.id}</p>
-          //     <p>Username: ${data.username}</p>
-          //     <p>Account Type: ${data.account_type}</p>
-          //     <p>Media Count: ${data.media_count}</p>
-          // `;
-        })
-        .catch(error => {
-          console.error('Erro ao obter informações da API do Instagram:', error);
-        });
-    }
-  </script>
 
   <!--Footer Start-->
   <?php get_footer(); ?>

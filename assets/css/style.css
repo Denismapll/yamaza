@@ -554,7 +554,7 @@ header .navbar-brand{
     left: 25px;
     bottom: 20px;
     z-index: 1111;
-    width: 80px;
+    width: 200px;
 }
 header .navbar-brand img{
     max-width: 80%;
