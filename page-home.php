@@ -74,8 +74,8 @@ get_header(); ?>
             <div class="col-12 col-lg-4 d-flex align-items-center">
               <div class="side-footer text-white w-100">
                 <div class="menu-company-details">
-                  <span>+1 631 123 4567</span>
-                  <span>email@website.com</span>
+                  <span><a href="https://api.whatsapp.com/send?phone=5511978019566&text=Ol%C3%A1,%20vim%20pelo%20site,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20empresa%20!">11 97801-9566</a></span>
+                  <span>contato@yamazaprints.com.br</span>
                 </div>
                 <ul class="social-icons-simple">
                   <li><a class="facebook-text-hvr" href="javascript:void(0)"><i class="fab fa-facebook-f"></i> </a> </li>
@@ -599,7 +599,7 @@ get_header(); ?>
   <div class="container">
     <!-- LightWidget WIDGET -->
     <!-- LightWidget WIDGET -->
-    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/07c601db698f5aaa9bdad305d59ebf4a.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+     <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/a83af9f400b051a79daee98a7c20ac31.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
   </div>
   <!--sponsers section end-->
 
@@ -731,13 +731,11 @@ get_header(); ?>
         <div class="col-12 col-lg-5 text-center text-lg-left position-relative d-flex align-items-center">
           <div class="contact-details wow fadeInRight">
             <ul>
-              <li><i class="las la-map-marker addr color-blue"></i>123 Park Avenue, New York, United
-                States </li>
+              <li><i class="las la-map-marker addr color-blue"></i>R. Léo de Oliveira, 33 - Vila Moreira, Guarulhos - SP, 07021-080</li>
               <li><i class="las la-phone-volume phone color-yellow"></i>
-                <span>+1 631 1234 5678</span>
-                <span>+1 631 1234 5678</span>
+                <span><a href="https://api.whatsapp.com/send?phone=5511978019566&text=Ol%C3%A1,%20vim%20pelo%20site,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20empresa%20!">11 97801-9566</a></span>
               </li>
-              <li><i class="las la-paper-plane email color-green"></i>email@website.com</li>
+              <li><i class="las la-paper-plane email color-green"></i>contato@yamazaprints.com.br</li>
             </ul>
           </div>
           <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images'; ?>/contact-background.png" class="contact-background" alt="contact">
